@@ -93,3 +93,65 @@ my_function() {
 # read input from stdin and store it in a variable called name
 read name
 
+#add a prompt
+read -p "Enter your name: " name
+echo "Hello, $name"
+
+# hide the input (silent input)
+read -s password 
+
+#read multiple variables
+read first last
+
+# determine how a command is interpreted
+type [command]
+
+# will tell you if a command is a builtin, an alias, external, etc
+type ls
+
+# tell the current shell to read and execute commands from a file
+source file.sh
+
+#after running source file.sh, the variables from that script become 
+#available in the current shell
+#since a script runs in a seperate child process, its variables will
+# not usually persist to your session after it is run
+
+#example
+source ~/.bashrc
+
+#the difference between running a script with source vs. ./file.sh is that
+# source will run it in the current terminal session
+
+#pass variables and functions to child processes
+#make a shell variable available to programs/processes launched from this shell
+export name="Brendan"
+
+#view environmental variables
+env
+
+#grep environmental variables for the exported variable name
+env | grep name
+
+# to make a variable global, add it to the PATH
+
+#echo is both built-in and external 
+type -a echo
+
+#man pages are used for getting help for external commands
+man echo
+
+#help pages are used for getting help fo built-ins
+help echo
+
+#PATH
+# the $PATH environmental variable is a colon-seperated list of directories
+# that tells your shell where to look for executable programs when you type a command
+
+#view your current path:
+echo $PATH
+
+# add a new folder to PATH for this session
+PATH=$PATH:~/scripts
+
+# to add a folder to PATH persistently, add the above line to .bashrc file
