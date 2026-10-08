@@ -90,3 +90,6 @@ my_function() {
     local name="Bren"
 
 }
+# read input from stdin and store it in a variable called name
+read name
+
